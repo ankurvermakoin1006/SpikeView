@@ -1,0 +1,1 @@
+This directory is being used for internal file saving/processing and after operations completed, will get deleted.

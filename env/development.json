@@ -1,0 +1,63 @@
+{
+  "env": "development",
+  "server_url" : "http://103.76.253.131:3000",
+  "mongoose": {
+    "host": "103.21.53.11",
+    "port": "27017",
+    "dbName":"spikeview",
+    "user":"spikeview",
+    "password":"spike123",
+    "authSource":"admin"
+  },
+  "apps": {
+    "email": {
+      "api_key": "",
+      "domain": "",
+      "from_whom": "spikeview.dev@gmail.com",   
+      "smtp_host": "smtp.gmail.com",
+      "smtp_port": 587,
+      "smtp_user": "spikeview.dev@gmail.com",
+      "smtp_pass": "spike@123",
+      "smtp_logger": false,
+      "smtp_debug": false,
+      "smtp_secureConnection": true,
+      "encryption_method":"TLS"
+    },
+    "azure": {
+      "container": "spikeview-media-development",
+      "thumbnail_container": "spikeview-media-development-thumbnails",
+      "connection_string": "DefaultEndpointsProtocol=https;AccountName=spikeviewmediastorage;AccountKey=q0iZItqe9n8wewrW4iTBoR1PbaxS4GSgymPIglqkV2k7Z1cGJUufQsB3O3Punc+ctxv2tajG409bItwj7ww4JQ==;EndpointSuffix=core.windows.net",
+      "base_url": "https://spikeviewmediastorage.blob.core.windows.net/"
+    },
+    "fcm": {
+      "key": "AAAA7LnXsxg:APA91bE6s4rz15OLrHazOGReKIv48d-HYjP1OA2Og_6l47UCt3W1ZLooXOJlnS9DPnFqpzDyU8G_ClL8lbMKy7KvIsC2plhBBf-wkLNpvZInIkhg0kEpzeHLGjlSen_ZG14FkpTiS20T"
+    }
+  },
+  "spikeview": {  
+    "logo_url": "https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/logo_new.png",
+    "banner": "https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/banner_new.png",
+    "child_profile":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/child.png",
+    "facebook":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/facebook.png",
+    "gmail":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/gmail.png",
+    "twitter":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/twitter.png",
+    "view_request":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/viewRequest.png",
+    "activate_now":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/activateNow.jpg",
+    "goto_spikeview":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/gotoSpikeview.jpg",
+    "view_profile":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/viewProfile.jpg",
+    "join_group":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/joinGroup.jpg",
+    "parentImage":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-development/sv_1/family.png",
+    "studentImage":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-development/sv_1/student.png",
+    "partnerImage":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-development/sv_1/join.png",
+    "likeImage":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/Group_156.png",
+    "commentImage":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/Group_160.png",
+    "groupImage":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/Group_162.png",
+    "chatImage":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/Group_158.png",
+    "chatPartnerImage":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/Group_159.png",
+    "postImage":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/Group_161.png",
+    "connectionImage":"https://spikeviewmediastorage.blob.core.windows.net/spikeview-media-production/sv_1/Group_157.png"
+
+  },
+  "jobs": {
+    "daily_jobs_time": "59 23 * * *"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "spikeview",
+  "version": "1.0.0",
+  "description": "LinkedIn for Kids",
+  "main": "server.js",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.17",
+    "azure-storage": "^2.10.3",
+    "body-parser": "^1.17.1",
+    "compression": "^1.7.0",
+    "cron": "^1.7.1",
+    "cryptlib": "^1.0.3",
+    "email-validator": "^1.0.7",
+    "errorhandler": "^1.5.0",
+    "express": "^4.15.2",
+    "express-fileupload": "^1.1.1-alpha.2",
+    "express-mongo-sanitize": "^1.3.2",
+    "express-rate-limit": "^5.0.0",
+    "express-session": "^1.15.2",
+    "fcm-node": "^1.3.0",
+    "fcm-push": "^1.1.3",
+    "fluent-ffmpeg": "^2.1.2",
+    "generate-password": "^1.4.2",
+    "helmet": "^3.20.0",
+    "log4js": "^4.5.1",
+    "moment": "^2.21.0",
+    "mongoose": "^4.9.5",
+    "mongoose-transaction": "0.0.3",
+    "mongoose-unique-validator": "^1.0.5",
+    "nconf": "^0.8.4",
+    "node-redis-warlock": "^0.2.0",
+    "nodemailer": "^4.6.4",
+    "owasp-password-strength-test": "^1.3.0",
+    "password-generator": "^2.2.0",
+    "redis": "^2.8.0",
+    "socket.io": "^2.1.1",
+    "socket.io-redis": "^5.2.0",
+    "swagger-ui-express": "^3.0.9",
+    "underscore": "^1.8.3",
+    "uuid": "^3.3.2",
+    "validator": "^6.3.0",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.2.1",
+    "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://vivekyadav24@bitbucket.org/vivekyadav24/spikeview_api.git"
+  },
+  "author": "vivek",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/dashboard/overview"
+}

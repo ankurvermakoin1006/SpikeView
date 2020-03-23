@@ -1,0 +1,4020 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "SpikeView API doc",
+		"version": "1.0.0",
+		"title": "SpikeView",
+		"contact": {
+			"email": "apiteam@swagger.io"
+		},
+		"license": {
+			"name": "Apache 2.0",
+			"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+		}
+	},
+	"host": "103.76.253.131:3002",
+	"basePath": "",
+	"tags": [{
+			"name": "Basic",
+			"description": "Login, Logout and Signup api's"
+		},
+		{
+			"name": "User",
+			"description": "User core api's"
+		},
+		{
+			"name": "Master",
+			"description": "Achievenent Type core api's"
+		},
+		{
+			"name": "Achievement",
+			"description": "User Achievement"
+		},
+		{
+			"name": "Education",
+			"description": "Education APIs"
+		},
+		{
+			"name": "Organization",
+			"description": "Organization APIs"
+		},
+		{
+			"name": "Recommendation",
+			"description": "Recommendation APIs"
+		},
+		{
+			"name": "Connection",
+			"description": "Connection APIs"
+		},
+		{
+			"name": "Profile",
+			"description": "Profile APIs"
+		},
+		{
+			"name": "Subscription",
+			"description": "Subscription APIs"
+		},
+		{
+			"name": "Messaging",
+			"description": "Messaging APIs"
+		},
+		{
+			"name": "Feeds",
+			"description": "Feed APIs"
+		},
+		{
+			"name": "Share Profiles",
+			"description": "Share Profile APIs"
+		},
+		{
+			"name": "Group",
+			"description": "Group APIs"
+		}
+	],
+	"schemes": [
+		"https", "http"
+	],
+	"paths": {
+		"/ui/personalInfo/{userId}": {
+			"get": {
+				"tags": [
+					"User"
+				],
+				"summary": "Finds user by userId",
+				"operationId": "finduserBuUserId",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "userId",
+					"in": "path",
+					"description": "get user by userId ",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "get user"
+					}
+				}
+			}
+		},
+		"/ui/user/": {
+			"put": {
+				"tags": [
+					"User"
+				],
+				"summary": "Update User",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "User updation in the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/responseUpdateUser"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "User response",
+						"schema": {
+							"$ref": "#/definitions/responseUpdateUser"
+						}
+					}
+				}
+			}
+		},
+		"/ui/user/updateUserStatus": {
+			"put": {
+				"tags": [
+					"User"
+				],
+				"summary": "Update User Status",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "User updation in the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestUpdateUserStatus"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "User response",
+						"schema": {
+							"$ref": "#/definitions/responseUpdateUserStatus"
+						}
+					}
+				}
+			}
+		},
+		"/app/signup": {
+			"post": {
+				"tags": [
+					"Basic"
+				],
+				"summary": "User Creation",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Create user in Database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/signUp"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "InterestType response",
+						"schema": {
+							"$ref": "#/definitions/signUp"
+						}
+					}
+				}
+			}
+		},
+		"/app/login": {
+			"post": {
+				"tags": [
+					"Basic"
+				],
+				"summary": "User Login",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "User Login",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/login"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "login response",
+						"schema": {
+							"$ref": "#/definitions/login"
+						}
+					}
+				}
+			}
+		},
+		"/ui/logout": {
+			"post": {
+				"tags": [
+					"Basic"
+				],
+				"summary": "User Logout",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "header",
+					"description": "User Logout",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/logout"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "logout response",
+						"schema": {
+							"$ref": "#/definitions/logout"
+						}
+					}
+				}
+			}
+		},
+		"/ui/personalInfo": {
+			"put": {
+				"tags": [
+					"User"
+				],
+				"summary": "update profile",
+				"description": "",
+				"operationId": "updateProfile",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "update user profile info",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/profileRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "profile response"
+					}
+				}
+			}
+		},
+		"/ui/competencyAllLevel": {
+			"get": {
+				"tags": [
+					"Master"
+				],
+				"summary": "Finds Competency all",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get competency All"
+					}
+				}
+			}
+		},
+		"/ui/education": {
+			"get": {
+				"tags": [
+					"Education"
+				],
+				"summary": "Finds Education",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Education",
+						"schema": {
+							"$ref": "#/definitions/Education"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Education"
+				],
+				"summary": "Create Education",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Education to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/responseEducation"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Education response",
+						"schema": {
+							"$ref": "#/definitions/responseEducation"
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Education"
+				],
+				"summary": "Update Education",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Education to updation in the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/responseUpdateEducation"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Education response",
+						"schema": {
+							"$ref": "#/definitions/responseUpdateEducation"
+						}
+					}
+				}
+			}
+		},
+		"/ui/achievement": {
+			"get": {
+				"tags": [
+					"Achievement"
+				],
+				"summary": "Finds Achievement",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Achievement",
+						"schema": {
+							"$ref": "#/definitions/Achievement"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Achievement"
+				],
+				"summary": "Create Achievement",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Add Achievement",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/achievementUpdateRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Achievement response"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Achievement"
+				],
+				"summary": "Update Achievement",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Achievement to updation in the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/achievementUpdateRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Achievement response",
+						"schema": {
+							"$ref": "#/definitions/responseUpdateAchievement"
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"Achievement"
+				],
+				"summary": "Delete Achievement",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Delete Achievement",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/achievementDeleteRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Achievement response"
+					}
+				}
+			}
+		},
+		"/ui/achievementByLevel2/{userId}": {
+			"get": {
+				"tags": [
+					"Achievement"
+				],
+				"summary": "Finds Achievement by userId",
+				"operationId": "findachievementbyUserId",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "userId",
+					"in": "path",
+					"description": "get Achievement by userId ",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "get user",
+						"schema": {
+							"$ref": "#/definitions/achievement"
+						}
+					}
+				}
+			}
+		},
+		"/ui/skills": {
+			"get": {
+				"tags": [
+					"Master"
+				],
+				"summary": "Finds Skills",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Skills",
+						"schema": {
+							"$ref": "#/definitions/Skills"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Master"
+				],
+				"summary": "Create Skills",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Skills to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/responseSkills"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Skills response",
+						"schema": {
+							"$ref": "#/definitions/responseSkills"
+						}
+					}
+				}
+			}
+		},
+		"/ui/importance": {
+			"get": {
+				"tags": [
+					"Master"
+				],
+				"summary": "Finds Importance",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Importance",
+						"schema": {
+							"$ref": "#/definitions/Importance"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Master"
+				],
+				"summary": "Create Importance",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Importance to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/responseImportance"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Importance response",
+						"schema": {
+							"$ref": "#/definitions/responseImportance"
+						}
+					}
+				}
+			}
+		},
+		"/ui/spider/chart/{userId}": {
+			"get": {
+				"tags": [
+					"Achievement"
+				],
+				"summary": "Get Spider Graph Details",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "userId",
+					"in": "path",
+					"description": "Graph details by userId ",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "get user",
+						"schema": {
+							"$ref": "#/definitions/achievement"
+						}
+					}
+				}
+			}
+		},
+		"/ui/organization": {
+			"get": {
+				"tags": [
+					"Organization"
+				],
+				"summary": "Finds Organization",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Organization",
+						"schema": {
+							"$ref": "#/definitions/Organization"
+						}
+					}
+				}
+			}
+		},
+		"/ui/recommendation": {
+			"get": {
+				"tags": [
+					"Recommendation"
+				],
+				"summary": "Finds Recommendation",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Recommendation",
+						"schema": {
+							"$ref": "#/definitions/Recommendation"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Recommendation"
+				],
+				"summary": "Create Recommendation",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Recommendation to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestRecommendation"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Recommendation response",
+						"schema": {
+							"$ref": "#/definitions/responseRecommendation"
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Recommendation"
+				],
+				"summary": "Update Recommendation",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Recommendation to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestRecommendation"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Recommendation response",
+						"schema": {
+							"$ref": "#/definitions/responseRecommendation"
+						}
+					}
+				}
+			}
+		},
+		"/ui/connect": {
+			"get": {
+				"tags": [
+					"Connection"
+				],
+				"summary": "Finds Connections",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Connection",
+						"schema": {
+							"$ref": "#/definitions/Education"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Connection"
+				],
+				"summary": "Create Connection",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Connection to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/responseConnection"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Connection response",
+						"schema": {
+							"$ref": "#/definitions/responseConnection"
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Connection"
+				],
+				"summary": "Update Connection",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Connection to updation in the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/responseUpdateConnection"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Connection response",
+						"schema": {
+							"$ref": "#/definitions/responseUpdateConnection"
+						}
+					}
+				}
+			}
+		},
+		"/ui/counts/{userId}": {
+			"get": {
+				"tags": [
+					"Profile"
+				],
+				"summary": "Finds count by userId",
+				"operationId": "findCountBuUserId",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "userId",
+					"in": "path",
+					"description": "get count by userId ",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "get user"
+					}
+				}
+			}
+		},
+		"/ui/subscription": {
+			"get": {
+				"tags": [
+					"Subscription"
+				],
+				"summary": "Finds subscription",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get subscription",
+						"schema": {
+							"$ref": "#/definitions/Subscription"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Subscription"
+				],
+				"summary": "Create Subscription",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Subscription to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestSubscription"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Subscription response",
+						"schema": {
+							"$ref": "#/definitions/responseSubscription"
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Subscription"
+				],
+				"summary": "Update Subscription",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Subscription to updation in the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestUpdateSubscription"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Subscription response",
+						"schema": {
+							"$ref": "#/definitions/responseUpdateSubscription"
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"Subscription"
+				],
+				"summary": "Delete Subscription",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Subscription to delete to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestDeleteSubscription"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Subscription response",
+						"schema": {
+							"$ref": "#/definitions/responseDeleteSubscription"
+						}
+					}
+				}
+			}
+		},
+		"/ui/message": {
+			"get": {
+				"tags": [
+					"Messaging"
+				],
+				"summary": "Finds Messaging",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Messaging",
+						"schema": {
+							"$ref": "#/definitions/Messaging"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Messaging"
+				],
+				"summary": "Create Messaging",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Messaging to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestMessaging"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Messaging response",
+						"schema": {
+							"$ref": "#/definitions/responseMessaging"
+						}
+					}
+				}
+			}
+		},
+		"/ui/message/friendList/info/{userId}": {
+			"get": {
+				"tags": [
+					"Messaging"
+				],
+				"summary": "Find by userId",
+				"operationId": "findCountBuUserId",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "userId",
+					"in": "path",
+					"description": "get by userId ",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "get user"
+					}
+				}
+			}
+		},
+		"/ui/feed": {
+			"get": {
+				"tags": [
+					"Feeds"
+				],
+				"summary": "Finds Feeds",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Feeds",
+						"schema": {
+							"$ref": "#/definitions/Feeds"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Feeds"
+				],
+				"summary": "Create Feed",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Feeds to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestFeeds"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Feed response",
+						"schema": {
+							"$ref": "#/definitions/responseFeeds"
+						}
+					}
+				}
+			}
+		},
+		"/ui/feed/addComment": {
+			"put": {
+				"tags": [
+					"Feeds"
+				],
+				"summary": "Add Comment",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Comment to the post",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestComment"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Subscription response",
+						"schema": {
+							"$ref": "#/definitions/responseUpdateSubscription"
+						}
+					}
+				}
+			}
+		},
+		"/ui/feed/addLike": {
+			"put": {
+				"tags": [
+					"Feeds"
+				],
+				"summary": "Like",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Like a post",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestLike"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Subscription response",
+						"schema": {
+							"$ref": "#/definitions/responseLike"
+						}
+					}
+				}
+			}
+		},
+		"/ui/share/profile": {
+			"get": {
+				"tags": [
+					"Share Profiles"
+				],
+				"summary": "Finds Shared Profiles",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Shared Profiles",
+						"schema": {
+							"$ref": "#/definitions/SharedProfiles"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Share Profiles"
+				],
+				"summary": "Create Share Profile",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+						"name": "Parameters",
+						"in": "body",
+						"description": "Profile Share to add to the database",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/sharedProfiles"
+						}
+					},
+					{
+						"name": "Parameters",
+						"in": "body",
+						"description": "Profile Share to add to the database",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/sharedProfiles"
+						}
+					}
+				],
+
+				"responses": {
+					"200": {
+						"description": "Messaging response",
+						"schema": {
+							"$ref": "#/definitions/responseMessaging"
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Share Profiles"
+				],
+				"summary": "Create Share Profile",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Profile Share to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/sharedProfilesUpdate"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Messaging response",
+						"schema": {
+							"$ref": "#/definitions/sharedProfilesUpdate"
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"Share Profiles"
+				],
+				"summary": "Delete Shared Profiles",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/sharedProfilesDeleteRequest"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Shared Profiles Delete response"
+					}
+				}
+			}
+		},
+		"/ui/achievement/addLike": {
+			"put": {
+				"tags": [
+					"Achievement"
+				],
+				"summary": "Add Like",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Achievement to updation in the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/addLikeAchievement"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Achievement response",
+						"schema": {
+							"$ref": "#/definitions/addLikeAchievementResponse"
+						}
+					}
+				}
+			}
+		},
+		"/ui/recommendation/addLike": {
+			"put": {
+				"tags": [
+					"Recommendation"
+				],
+				"summary": "Add Like",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Recommendation to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/addLikeRecommendation"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Recommendation response",
+						"schema": {
+							"$ref": "#/definitions/responseAddLikeRecommendation"
+						}
+					}
+				}
+			}
+		},
+		"/ui/group": {
+			"get": {
+				"tags": [
+					"Group"
+				],
+				"summary": "Get Groups",
+				"operationId": "",
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "Get Group",
+						"schema": {
+							"$ref": "#/definitions/Group"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Group"
+				],
+				"summary": "Create Group",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Group to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestGroup"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Group response",
+						"schema": {
+							"$ref": "#/definitions/responseGroup"
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Group"
+				],
+				"summary": "Update Group",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Group to updation in the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/responseGroup"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Group update response",
+						"schema": {
+							"$ref": "#/definitions/responseGroup"
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"Group"
+				],
+				"summary": "Delete Group",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Group to delete to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestDeleteGroup"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Subscription response",
+						"schema": {
+							"$ref": "#/definitions/responseDeleteSubscription"
+						}
+					}
+				}
+			}
+		},
+		"/ui/group/mygroups/{userId}": {
+			"get": {
+				"tags": [
+					"Group"
+				],
+				"summary": "Get my groups",
+				"operationId": "findCountBuUserId",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "userId",
+					"in": "path",
+					"description": "get groups based on user id ",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"security": [{
+					"api_key": []
+				}],
+				"responses": {
+					"200": {
+						"description": "get user"
+					}
+				}
+			}
+		},
+		"/ui/group/leave": {
+			"post": {
+				"tags": [
+					"Group"
+				],
+				"summary": "Leave Group",
+				"description": "",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"security": [{
+					"api_key": []
+				}],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "Group to add to the database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/requestLeaveGroup"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "Group response",
+						"schema": {
+							"$ref": "#/definitions/responseLeaveGroup"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"responseUser": {
+			"properties": {
+				"firstName": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myName"
+				},
+				"lastName": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myLastName"
+				},
+				"email": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "email@tt.com"
+				},
+				"parentEmail": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "email@tt.com"
+				},
+				"roleId": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "1"
+				},
+				"title": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "my title"
+				}
+			}
+		},
+		"responseAchievementType": {
+			"properties": {
+				"title": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "mytitle"
+				},
+				"description": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myDescription"
+				},
+				"type": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myType"
+				}
+			}
+		},
+		"responseExpertiseType": {
+			"properties": {
+				"title": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "mytitle"
+				},
+				"description": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myDescription"
+				}
+			}
+		},
+		"signUp": {
+			"properties": {
+				"firstName": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "John"
+				},
+				"lastName": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "Smith"
+				},
+				"email": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "john.smith@yopmail.com"
+				},
+				"parentEmail": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "carl.john@yopmail.com"
+				},
+				"roleId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"parentFirstName": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "Carl"
+				},
+				"dob": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "631132200000"
+				}
+
+			}
+		},
+		"login": {
+			"properties": {
+				"email": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "test@test.com"
+				},
+				"password": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "mypassword"
+				}
+			}
+		},
+		"responseInterestType": {
+			"properties": {
+				"title": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "mytitle"
+				},
+				"description": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myDescription"
+				},
+				"cagtegory": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myCategory"
+				},
+				"type": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myType"
+				}
+			}
+		},
+		"profileRequest": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "2"
+				},
+				"roleId": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "1"
+				},
+				"firstName": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myName"
+				},
+				"lastName": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myLastName"
+				},
+				"gender": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "Male"
+				},
+				"genderAtBirth": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "Male"
+				},
+				"dob": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "631132200000"
+				},
+				"usCitizenOrPR": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": "true"
+				},
+				"parents": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/parentEmail"
+					}
+				},
+				"address": {
+					"$ref": "#/definitions/address"
+				},
+				"requireParentApproval": {
+					"required": [
+						"true"
+					],
+					"type": "boolean",
+					"example": "true"
+				},
+				"ccToParents": {
+					"required": [
+						"true"
+					],
+					"type": "boolean",
+					"example": "true"
+				},
+				"summary": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "text text"
+				},
+				"tagline": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "text text"
+				},
+				"title": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "my title"
+				},
+				"coverImage": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "azure url"
+				}
+
+			}
+		},
+		"parentEmail": {
+			"properties": {
+				"userId": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "22"
+				},
+				"email": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "parent@tt.com"
+				}
+			}
+		},
+		"addParents": {
+			"properties": {
+				"email": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "newParent@one.com"
+				}
+			}
+		},
+		"address": {
+			"properties": {
+				"street1": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "18 Professors colony"
+				},
+				"street2": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "above Allahabad bank"
+				},
+				"city": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "indore"
+				},
+				"state": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "mp"
+				},
+				"zip": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "34543534534"
+				},
+				"country": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "india"
+				}
+			}
+		},
+		"competencyAll": {
+			"properties": {
+				"competency": {
+					"$ref": "#/definitions/competency"
+				}
+			}
+		},
+		"competency": {
+			"properties": {
+				"level1": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "india"
+				},
+				"level2": {
+					"$ref": "#/definitions/level2"
+				}
+			}
+		},
+		"level2": {
+			"properties": {
+				"level2": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "mp"
+				},
+				"level3": {
+					"$ref": "#/definitions/level3"
+				}
+			}
+		},
+		"level3": {
+			"properties": {
+				"level3": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "indore"
+				}
+			}
+		},
+		"responseEducation": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": 50
+				},
+				"organizationId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": 50
+				},
+				"institute": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "Abc Institute of Technology"
+				},
+				"city": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "New York"
+				},
+				"fieldOfStudy": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "Information Technology"
+				},
+				"grade": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "A+"
+				},
+				"fromDate": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Jan-2017"
+				},
+				"toDate": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Feb-2017"
+				},
+				"description": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Description here"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": "true"
+				}
+
+			}
+		},
+		"responseUpdateEducation": {
+			"properties": {
+				"educationId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": 50
+				},
+				"organizationId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": 50
+				},
+				"institute": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "Abc Institute of Technology"
+				},
+				"city": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "New York"
+				},
+				"fieldOfStudy": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "Information Technology"
+				},
+				"grade": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "A+"
+				},
+				"fromDate": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Jan-2017"
+				},
+				"toDate": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Feb-2017"
+				},
+				"description": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Description here"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": "true"
+				}
+			}
+		},
+		"responseInternship": {
+			"properties": {
+				"internshipId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"fromDate": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"toDate": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"city": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "New York"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": "true"
+				}
+			}
+		},
+		"responseUpdateInternship": {
+			"properties": {
+				"internshipId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"fromDate": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"toDate": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"city": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "New York"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": "true"
+				}
+			}
+		},
+		"achievementRequest": {
+			"properties": {
+				"achievementId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"competencyTypeId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"level3Competency": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"badge": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "url of badge"
+				},
+				"certificate": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "url of certificate"
+				},
+				"asset": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "url of asset"
+				},
+				"skills": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "skills from dropdown"
+				},
+				"title": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "title text"
+				},
+				"description": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "description text"
+				},
+				"fromDate": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"toDate": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"importance": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "1 to 10"
+				},
+				"guide": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "guide"
+				},
+				"stories": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "stories"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": "true"
+				}
+			}
+		},
+		"responseSkills": {
+			"properties": {
+				"skillId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"title": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "title text"
+				},
+				"description": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "description text"
+				}
+			}
+		},
+		"responseImportance": {
+			"properties": {
+				"importanceId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"title": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "title text"
+				},
+				"description": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "description text"
+				}
+			}
+		},
+		"responseUpdateAchievement": {
+			"properties": {
+				"achievementId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"competencyTypeId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"level3Competency": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"badge": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "url of badge"
+				},
+				"certificate": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "url of certificate"
+				},
+				"asset": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "url of asset"
+				},
+				"skills": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "skills from dropdown"
+				},
+				"parents": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/parentEmail"
+					}
+				},
+				"title": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "title text"
+				},
+				"description": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "description text"
+				},
+				"fromDate": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"toDate": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"importance": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "1 to 10"
+				},
+				"guide": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "guide"
+				},
+				"stories": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "stories"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": "true"
+				},
+				"level2Competency": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "stories"
+				}
+			}
+		},
+		"achievementUpdateRequest": {
+			"properties": {
+				"achievementId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"competencyTypeId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"level2Competency": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"level3Competency": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1"
+				},
+				"badge": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "url of badge"
+				},
+				"certificate": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "url of certificate"
+				},
+				"asset": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": [{
+						"file": "sv_1418/media/15426077309946Uegd.jpg",
+						"tag": "media",
+						"type": "image"
+					}]
+				},
+				"skills": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": [{
+						"skillId": 1,
+						"label": "Analytical and Critical Thinking"
+					}]
+				},
+				"title": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "title text"
+				},
+				"description": {
+					"required": [
+						"false"
+					],
+					"type": "String",
+					"example": "description text"
+				},
+				"fromDate": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"toDate": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "1527855244"
+				},
+				"importance": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "1 to 10"
+				},
+				"guide": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": {
+						"promptRecommendation": false
+					}
+				},
+				"stories": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "stories"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": "true"
+				}
+			}
+		},
+		"achievementDeleteRequest": {
+			"properties": {
+				"achievementId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": "45"
+				}
+			}
+		},
+		"responseUpdateUser": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": 50
+				},
+				"firstName": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myName"
+				},
+				"lastName": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "myLastName"
+				},
+				"email": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "email@tt.com"
+				},
+				"parentEmail": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "email@tt.com"
+				},
+				"roleId": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "1"
+				},
+				"title": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "my title"
+				}
+			}
+
+		},
+		"responseRecommendation": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "1212"
+				},
+				"competencyTypeId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "9"
+				},
+				"level3Competency": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "level3Competency"
+				},
+				"recommenderId": {
+					"required": [
+						"false"
+					],
+					"type": "Number",
+					"example": "12"
+				},
+				"title": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "Research @ lMS"
+				},
+				"request": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "request Research @ lMS"
+				},
+				"recommendation": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "recommendation Research @ lMS"
+				},
+				"interactionStartDate": {
+					"required": [
+						"true"
+					],
+					"type": "date",
+					"example": "243214242142"
+				},
+				"interactionEndDate": {
+					"required": [
+						"true"
+					],
+					"type": "date",
+					"example": "243214242142"
+				}
+			}
+		},
+		"requestRecommendation": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1212
+				},
+				"competencyTypeId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 9
+				},
+				"level3Competency": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "level3Competency"
+				},
+				"firstName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Tom"
+				},
+				"lastName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Tom"
+				},
+				"email": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Tom@tom.com"
+				},
+				"recommenderId": {
+					"required": [
+						"false"
+					],
+					"type": "Number",
+					"example": 12
+				},
+				"title": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "Research @ lMS"
+				},
+				"request": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "request Research @ lMS"
+				},
+				"recommendation": {
+					"required": [
+						"false"
+					],
+					"type": "string",
+					"example": "recommendation Research @ lMS"
+				},
+				"interactionStartDate": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 243214242142
+				},
+				"interactionEndDate": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 243214242142
+				},
+				"skills": {
+					"required": [
+						"false"
+					],
+					"type": "array",
+					"example": "[]"
+				},
+				"badge": {
+					"required": [
+						"false"
+					],
+					"type": "array",
+					"example": "[]"
+				},
+				"certificate": {
+					"required": [
+						"false"
+					],
+					"type": "array",
+					"example": "[]"
+				},
+				"asset": {
+					"required": [
+						"false"
+					],
+					"type": "array",
+					"example": "[]"
+				}
+			}
+		},
+		"responseConnection": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "123"
+				},
+				"partnerId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "456"
+				},
+				"dateTime": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "212232131233.0"
+				},
+
+				"status": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "a"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": "true"
+				}
+			}
+		},
+		"responseUpdateConnection": {
+			"properties": {
+				"connectId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "5"
+				},
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "123"
+				},
+				"partnerId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8"
+				},
+				"dateTime": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "212232131233.0"
+				},
+
+				"status": {
+					"required": [
+						"true"
+					],
+					"type": "string",
+					"example": "a"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": "true"
+				}
+			}
+		},
+		"requestSubscription": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "123"
+				},
+				"followerId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8"
+				},
+				"followerName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Arpit"
+				},
+				"dateTime": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8146546"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "boolean",
+					"example": "true"
+				},
+				"status": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Subscribe"
+				}
+			}
+		},
+		"responseSubscription": {
+			"properties": {
+				"subscribeId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "5"
+				},
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "123"
+				},
+				"followerId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8"
+				},
+				"followerName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Arpit"
+				},
+				"dateTime": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8146546"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "boolean",
+					"example": "true"
+				},
+				"status": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Subscribe"
+				}
+			}
+
+
+		},
+		"requestUpdateSubscription": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "123"
+				},
+				"followerId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8"
+				},
+				"followerName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Arpit"
+				},
+				"dateTime": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8146546"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "boolean",
+					"example": "true"
+				},
+				"status": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Subscribe"
+				}
+			}
+		},
+		"responseUpdateSubscription": {
+			"properties": {
+				"subscribeId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "5"
+				},
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "123"
+				},
+				"followerId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8"
+				},
+				"followerName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Arpit"
+				},
+				"dateTime": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8146546"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "boolean",
+					"example": "true"
+				},
+				"status": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Subscribe"
+				}
+			}
+
+
+		},
+		"requestDeleteSubscription": {
+			"properties": {
+				"subscribeId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "1"
+				}
+			}
+		},
+		"requestMessaging": {
+			"properties": {
+				"connectorId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8"
+				},
+				"sender": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "15"
+				},
+				"receiver": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "16"
+				},
+				"text": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "how are you?"
+				},
+				"time": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8146546"
+				},
+				"type": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "2"
+				}
+			}
+		},
+		"responseMessaging": {
+			"properties": {
+				"messageId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "1"
+				},
+				"connectorId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8"
+				},
+				"sender": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "15"
+				},
+				"receiver": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "16"
+				},
+				"text": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "how are you?"
+				},
+				"time": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8146546"
+				},
+				"type": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "2"
+				}
+			}
+		},
+		"requestFeeds": {
+			"properties": {
+				"post": {
+					"required": [
+						"true"
+					],
+					"type": {},
+					"example": {
+						"text": {
+							"text": "hi there",
+							"images": [],
+							"media": []
+						}
+					}
+				},
+				"postedBy": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 8
+				},
+				"dateTime": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 6546847
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": true
+				},
+				"visibility": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Public"
+				}
+			}
+		},
+		"responseFeeds": {
+			"properties": {
+				"feedId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "1"
+				},
+
+				"post": {
+					"required": [
+						"true"
+					],
+					"type": {},
+					"example": {
+						"text": {
+							"text": "hi there",
+							"images": [],
+							"media": []
+						}
+					}
+				},
+				"postedBy": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "8"
+				},
+				"dateTime": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": "6546847"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": true
+				},
+				"scope": {
+					"required": [
+						"true"
+					],
+					"type": "array",
+					"example": [11, 25, 2]
+				},
+				"like": {
+					"required": [
+						"true"
+					],
+					"type": "array",
+					"example": [{
+							"userId": 1,
+							"name": "David"
+						},
+						{
+							"userId": 15,
+							"name": "Kareem"
+						}
+					]
+				},
+				"comments": {
+					"required": [
+						"true"
+					],
+					"type": "array",
+					"example": [{
+							"userid": 1,
+							"name": "John",
+							"comment": "nice post",
+							"dateTime": 5454754
+						},
+						{
+							"userid": 5,
+							"name": "Bahubali",
+							"comment": "very good",
+							"dateTime": 5454754
+						}
+					]
+				}
+			}
+		},
+		"requestUpdateUserStatus": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "number",
+					"example": 50
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "boolean",
+					"example": true
+				}
+			}
+
+		},
+		"responseUpdateUserStatus": {
+			"properties": {
+				"status": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Success"
+				},
+				"message": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "User with userId 50 updated successfully"
+				}
+			}
+
+		},
+		"requestComment": {
+			"properties": {
+				"comment": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": {
+						"feedId": 52,
+						"userId": 12,
+						"comment": "Nice post",
+						"name": "David Joe"
+					}
+				}
+			}
+		},
+		"requestLike": {
+			"properties": {
+				"comment": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": {
+						"feedId": 52,
+						"userId": 12,
+						"name": "D Thomas"
+					}
+				}
+			}
+		},
+		"sharedProfiles": {
+			"properties": {
+				"sharedType": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Email"
+				},
+				"profileOwner": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 55
+				},
+				"firstName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Arpit"
+				},
+				"lastName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Bhatt"
+				},
+				"email": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "arpit.bhatt@yopmail.com"
+				},
+				"shareTime": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 6654689879
+				},
+				"shareConfiguration": {
+					"required": [
+						"true"
+					],
+					"type": "array",
+					"example": [{
+							"competencyTypeId": 1,
+							"importance": 5
+						},
+						{
+							"competencyTypeId": 44,
+							"importance": 8
+						}
+					]
+				},
+				"profileName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Profile to Coach"
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "Boolean",
+					"example": true
+				}
+			}
+		},
+		"sharedProfilesUpdate": {
+			"properties": {
+				"sharedId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 55
+				},
+				"sharedTo": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 55
+				}
+			}
+		},
+		"sharedProfilesDeleteRequest": {
+			"properties": {
+				"sharedId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1
+				}
+			}
+		},
+		"addLikeAchievement": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1
+				},
+				"achievementId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1
+				}
+			}
+		},
+		"addLikeRecommendation": {
+			"properties": {
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1
+				},
+				"recommendationId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1
+				}
+			}
+
+		},
+		"group": {
+			"properties": {
+				"groupId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1
+				},
+				"groupName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "DPS Sports Group"
+				},
+				"members": {
+					"required": [
+						"true"
+					],
+					"type": "array",
+					"example": [101, 102]
+				},
+				"type": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "TYPE-1"
+				},
+				"creationDate": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1543578421350
+				},
+				"createdBy": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 27
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "boolean",
+					"example": true
+				}
+			}
+		},
+		"requestGroup": {
+			"properties": {
+				"groupId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1
+				},
+				"groupName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "DPS Sports Group"
+				},
+				"members": {
+					"required": [
+						"true"
+					],
+					"type": "array",
+					"example": [101, 102]
+				},
+				"type": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "TYPE-1"
+				},
+				"creationDate": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1543578421350
+				},
+				"createdBy": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 27
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "boolean",
+					"example": true
+				},
+				"aboutGroup": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Some amazing lines about this group."
+				},
+				"otherInfo": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Other information of the group"
+				},
+				"groupImage": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "group image"
+				}
+			}
+		},
+		"responseGroup": {
+			"properties": {
+				"groupId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1
+				},
+				"groupName": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "DPS Sports Group"
+				},
+				"members": {
+					"required": [
+						"true"
+					],
+					"type": "array",
+					"example": [101, 102]
+				},
+				"type": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "TYPE-1"
+				},
+				"creationDate": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1543578421350
+				},
+				"createdBy": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 27
+				},
+				"isActive": {
+					"required": [
+						"true"
+					],
+					"type": "boolean",
+					"example": true
+				},
+				"aboutGroup": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Some amazing lines about this group."
+				},
+				"otherInfo": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "Other information of the group"
+				},
+				"groupImage": {
+					"required": [
+						"true"
+					],
+					"type": "String",
+					"example": "group image"
+				}
+			}
+		},
+		"requestDeleteGroup": {
+			"properties": {
+				"groupId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 15
+				}
+			}
+		},
+		"requestLeaveGroup": {
+			"properties": {
+				"groupId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 15
+				},
+				"userId": {
+					"required": [
+						"true"
+					],
+					"type": "Number",
+					"example": 1021
+				}
+			}
+		}
+	},
+	"securityDefinitions": {
+		"petstore_auth": {
+			"type": "basic",
+			"authorizationUrl": "http://localhost:3002/oauth/dialog",
+			"flow": "implicit",
+			"scopes": {
+				"write:pets": "post data",
+				"read:pets": "read data"
+			}
+		},
+		"api_key": {
+			"type": "apiKey",
+			"name": "authorization",
+			"in": "header"
+		}
+	}
+}
